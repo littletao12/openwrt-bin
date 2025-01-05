@@ -1,19 +1,19 @@
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=mybinaries
+PKG_NAME:=openwrt-bin
 PKG_VERSION:=1.0.0
 PKG_RELEASE:=1
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/mybinaries
+define Package/openwrt-bin
   SECTION:=utils
   CATEGORY:=Utilities
   TITLE:=My Binaries
   DEPENDS:=
 endef
 
-define Package/mybinaries/description
+define Package/openwrt-bin/description
   This package contains multiple custom binary files.
 endef
 
@@ -23,7 +23,7 @@ define Build/Compile
   echo "Skipping compile step"
 endef
 
-define Package/mybinaries/install
+define Package/openwrt-bin/install
   # Create the target directory for installation
   $(INSTALL_DIR) $(1)/usr/bin
   
@@ -33,4 +33,4 @@ define Package/mybinaries/install
   # If there are more binaries, repeat the line for each
 endef
 
-$(eval $(call BuildPackage,mybinaries))
+$(eval $(call BuildPackage,openwrt-bin))
