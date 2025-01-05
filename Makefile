@@ -26,9 +26,9 @@ endef
 
 define Package/mybinaries/install
   $(INSTALL_DIR) $(1)/usr/bin
-  $(INSTALL_BIN) ./files/mybinary1 $(1)/usr/bin/
-  $(INSTALL_BIN) ./files/mybinary2 $(1)/usr/bin/
-  $(INSTALL_BIN) ./files/mybinary3 $(1)/usr/bin/
+  $(INSTALL_BIN) ./files/natmap $(1)/usr/bin/
+  $(INSTALL_BIN) ./files/socat $(1)/usr/bin/
+  #$(INSTALL_BIN) ./files/mybinary3 $(1)/usr/bin/
 endef
 
 $(eval $(call BuildPackage,mybinaries))
