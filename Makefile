@@ -18,8 +18,7 @@ define Package/openwrt-bin/description
 endef
 
 define Build/Compile
-  # If there is no source code to compile, you can leave this empty.
-  # You don't need to define a compile step if it's just binaries.
+  # No source code to compile, skipping compile step
   echo "Skipping compile step"
 endef
 
@@ -30,7 +29,6 @@ define Package/openwrt-bin/install
   # Install the binaries into the target directory
   $(INSTALL_BIN) $(PKG_BUILD_DIR)/files/natmap $(1)/usr/bin/
   $(INSTALL_BIN) $(PKG_BUILD_DIR)/files/socat $(1)/usr/bin/
-  # If there are more binaries, repeat the line for each
 endef
 
 $(eval $(call BuildPackage,openwrt-bin))
