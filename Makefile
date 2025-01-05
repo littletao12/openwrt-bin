@@ -1,4 +1,3 @@
-# Package Makefile for OpenWrt
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mybinaries
@@ -19,16 +18,19 @@ define Package/mybinaries/description
 endef
 
 define Build/Compile
-  # 如果有源代码需要编译，可以在这里进行编译
-  # 否则，直接跳过
+  # If there is no source code to compile, you can leave this empty.
+  # You don't need to define a compile step if it's just binaries.
   echo "Skipping compile step"
 endef
 
 define Package/mybinaries/install
+  # Create the target directory for installation
   $(INSTALL_DIR) $(1)/usr/bin
-  $(INSTALL_BIN) ./files/natmap $(1)/usr/bin/
-  $(INSTALL_BIN) ./files/socat $(1)/usr/bin/
-  #$(INSTALL_BIN) ./files/mybinary3 $(1)/usr/bin/
+  
+  # Install the binaries into the target directory
+  $(INSTALL_BIN) $(PKG_BUILD_DIR)/files/natmap $(1)/usr/bin/
+  $(INSTALL_BIN) $(PKG_BUILD_DIR)/files/socat $(1)/usr/bin/
+  # If there are more binaries, repeat the line for each
 endef
 
 $(eval $(call BuildPackage,mybinaries))
