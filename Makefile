@@ -84,8 +84,8 @@ define Package/$(PKG_NAME)/install
 	# 第一条是指定复制到的目录
 	# 第二条是拷贝文件.
 
-	#$(INSTALL_DIR) $(1)/usr/bin
-	#$(INSTALL_BIN) ./files/cloudflared-linux-arm64 $(1)/usr/bin
+	$(INSTALL_DIR) $(1)/usr/bin
+	$(INSTALL_BIN) ./files/socat $(1)/usr/bin
 
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) ./files/natmap $(1)/usr/bin
